@@ -5,7 +5,7 @@ namespace ShopOnline.Api.Entensions
 {
     public static class DtoConversions
     {
-        public static IEnumerable<ProductDto> ConvertToDto(this IEnumerable<ProductDto> products,
+        public static IEnumerable<ProductDto> ConvertToDto(this IEnumerable<Product> products,
                             IEnumerable<ProductCategory> productCategories)
         {
             return (from product in products

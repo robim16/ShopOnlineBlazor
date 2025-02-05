@@ -17,7 +17,7 @@ namespace ShopOnline.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>> GetItems()
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetItems()
         {
             try
             {
