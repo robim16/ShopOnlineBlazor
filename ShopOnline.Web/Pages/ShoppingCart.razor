@@ -1,0 +1,28 @@
+﻿@page "/ShoppingCart"
+@inherits ShoppingCartBase
+
+@if(ShoppingCartItems == null && ErrorMessage == null)
+{
+    <DisplaySpinner></DisplaySpinner>
+}
+else if(ErrorMessage != null) 
+{
+    <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
+}
+else
+{
+    <h3 class="mb-5">Shopping Cart</h3>
+    <div class="row mb-5">
+        <div class="col-md-9">
+
+        </div>
+        <div class="col-md-3">
+            <h5>Cart Summary</h5
+                <div class="mt-2">
+                    <a href="#" class="btn btn-success">
+                        <span class="oi oi-credit-card">&nbsp; Proceed to Checkout </span>
+                    </a>
+                </div>
+        </div>
+    </div>
+}

@@ -43,22 +43,24 @@ namespace ShopOnline.Api.Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetItem()
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<ProductDto>> GetItem(int id)
         {
             try
             {
-                var products = await this.productRepository.GetItems();
-                var productCategories = await this.productRepository.GetCategories();
+                var product = await this.productRepository.GetItem(id);
 
-                if (products == null || productCategories == null)
+                if (product == null)
                 {
-                    return NotFound();
+                    return BadRequest();
                 }
                 else
                 {
-                    var productDtos = products.ConvertToDto(productCategories);
-                    return Ok(productDtos);
+                    var productCategory = await this.productRepository.GetCategory(product.CategoryId);
+                    
+                    var productDto = product.ConvertToDto(productCategory);
+
+                    return Ok(productDto);
                 }
 
             }
