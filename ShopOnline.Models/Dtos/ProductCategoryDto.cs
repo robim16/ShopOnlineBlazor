@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Models.Dtos
 {
-    class ProductCategoryDto
+    public class ProductCategoryDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
