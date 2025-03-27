@@ -25,7 +25,7 @@ namespace ShopOnline.Web.Services
 
         public async Task RemoveCollection()
         {
-            await this.localStorageService.RemoveItemsAsync(key);
+            await this.localStorageService.RemoveItemAsync(key);
         }
 
         private async Task<IEnumerable<ProductDto>> AddCollection()
