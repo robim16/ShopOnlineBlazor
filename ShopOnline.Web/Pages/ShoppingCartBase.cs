@@ -63,9 +63,9 @@ namespace ShopOnline.Web.Pages
 
                     var returnedUpdateItemDto = await this.ShoppingCartService.UpdateQty(updateItemDto);
 
-                    await UpdateItemTotalPrice(returnedUpdateItemDto);
+                    await UpdateItemTotalPrice(returnedUpdateItemDto);//recalcula subtotal del item
 
-                    CartChanged();
+                    CartChanged();//se recalcula el total y la cant. de items, y se emite un evento
 
                     await MakeUpdateQtyButtonVisible(id, false);
                 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using ShopOnline.Models.Dtos;
-using ShopOnline.Web.Services;
 using ShopOnline.Web.Services.Contracts;
 
 namespace ShopOnline.Web.Pages
@@ -35,7 +34,7 @@ namespace ShopOnline.Web.Pages
 
                 Products = await ManageProductsLocalStorageService.GetCollection();
 
-                var shoppingCartItems = ManageCartItemsLocalStorageService.GetCollection();
+                var shoppingCartItems = await ManageCartItemsLocalStorageService.GetCollection();
 
                 var totalQty = shoppingCartItems.Sum(i => i.Qty);
 
