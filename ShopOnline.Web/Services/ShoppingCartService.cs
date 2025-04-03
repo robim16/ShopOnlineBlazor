@@ -3,6 +3,7 @@ using ShopOnline.Models.Dtos;
 using ShopOnline.Web.Services.Contracts;
 using System.Net.Http.Json;
 using System.Text;
+using static ShopOnline.Web.Pages.FetchData;
 
 namespace ShopOnline.Web.Services
 {
@@ -105,6 +106,7 @@ namespace ShopOnline.Web.Services
             try
             {
                 var jsonRequest = JsonConvert.SerializeObject(cartItemQtyUpdateDto);
+
                 var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json-patch+json");
 
                 var response = await httpClient.PatchAsync($"api/ShoppingCart/{cartItemQtyUpdateDto.CartItemId}", content);
